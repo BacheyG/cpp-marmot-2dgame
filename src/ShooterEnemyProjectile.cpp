@@ -22,10 +22,10 @@ void ShooterEnemyProjectile::Reset(){
 
 void ShooterEnemyProjectile::Update(){
     GameObject::Update();
-    if (GameTimer::getTimeStamp() - TimeStamp > MormotaConstants::timeBetweenFire){
+    if (GameTimer::getTimeStamp() - TimeStamp > MormotaConstants::FIRE_RATE){
         Reset();
     }
     if (collider.get()->isColliding())
         GetTransform().SetPosition(0, MormotaConstants::BIG_NUMBER);
-    GetTransform().Translate(MormotaConstants::projectileVelocity * currDir * GameTimer::getDeltaTime(), 0);
+    GetTransform().Translate(MormotaConstants::PROJECTILE_VELOCITY * currDir * GameTimer::getDeltaTime(), 0);
 }

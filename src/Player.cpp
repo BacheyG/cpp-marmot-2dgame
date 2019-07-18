@@ -25,7 +25,7 @@ float verticalVelocity = 0;
 
 
 void Player::setWalkTexture(){
-    if (GameTimer::getElapsedTime() - walkTimer > MormotaConstants::walkAnimFreq){
+    if (GameTimer::getElapsedTime() - walkTimer > MormotaConstants::WALK_ANIM_FREQUENCY){
         walkAnimID++;
         if (walkAnimID > 2) walkAnimID = 0;
         walkTimer = GameTimer::getElapsedTime();
@@ -43,14 +43,14 @@ void Player::Update()
 {
     PhysicsEnabled::Update();
     if (!isHurt){
-    if (GetTransform().GetPosition().y < collider.get()->getTopLimit() + PLAYER_HEIGHT / 2 + MormotaConstants::epsilon && isOffGround){
+    if (GetTransform().GetPosition().y < collider.get()->getTopLimit() + PLAYER_HEIGHT / 2 + MormotaConstants::EPSILON && isOffGround){
         verticalVelocity = (float)(-fabs(verticalVelocity));
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::W) && !isOffGround)
     {
         isOffGround = true;
         airTimer = GameTimer::getTimeStamp();
-        verticalVelocity = MormotaConstants::jumpForce;
+        verticalVelocity = MormotaConstants::JUMP_FORCE;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::A) && collider.get()->getLeftLimit() < GetTransform().GetPosition().x - RUNNING_LIMIT)
     {

@@ -3,8 +3,7 @@
 #include "Collider.h"
 #include "ColliderBank.h"
 #include "MormotaConstants.h"
-//#include <SFML/Graphics.hpp>
-//class ColliderBank;
+
 class BoxCollider : public Collider
 {
     public:

@@ -14,13 +14,6 @@
 #include "MormotaConstants.h"
 #include "ShooterEnemy.h"
 
-////////////////////////////////////////////////////////////
-/// Entry point of application
-///
-/// \return Application exit code
-///
-////////////////////////////////////////////////////////////
-
 int main()
 {
     GameTimer gameTimer;
@@ -36,9 +29,8 @@ int main()
         sf::Event event;
         while (window.pollEvent(event))
         {
-            // Window closed or escape key pressed: exit
             if ((event.type == sf::Event::Closed) ||
-                    ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)))
+                ((event.type == sf::Event::KeyPressed) && (event.key.code == sf::Keyboard::Escape)))
             {
                 window.close();
                 break;
@@ -46,11 +38,8 @@ int main()
         }
 
         window.clear(sf::Color(50, 200, 240));
-
-        // Display things on screen
         gameScene.Update();
         window.display();
     }
-
     return EXIT_SUCCESS;
 }
